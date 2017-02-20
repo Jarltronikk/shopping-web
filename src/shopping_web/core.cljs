@@ -7,12 +7,14 @@
 
 ;; define your app data so that it doesn't get over-written on reload
 
-(defonce app-state (atom {:text "Hello world!"}))
+(defonce app-state (atom {:text "SHOP"}))
 
-(defn hello-world []
-  [:h1 (:text @app-state)])
+(defn main []
+  [:div [:h1 (:text @app-state)]
+   [:div {:dangerouslySetInnerHTML {:__html "<product-list></product-list>"}}]
+   ])
 
-(reagent/render-component [hello-world]
+(reagent/render-component [main]
                           (. js/document (getElementById "app")))
 
 (defn on-js-reload []
