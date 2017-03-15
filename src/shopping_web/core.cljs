@@ -1,16 +1,21 @@
 (ns shopping-web.core
-  (:require [reagent.core :as reagent :refer [atom]]))
+  (:require [reagent.core :as reagent :refer [atom]]
+            [reagent-modals.modals :as reagent-modals]))
 
 (enable-console-print!)
 
 
 
 (defonce app-state (atom {:text "SHOP"}))
-
 (defn main []
   [:div [:h1 (:text @app-state)]
+   [:div
+    [reagent-modals/modal-window]
+    ]
    [:div {:dangerouslySetInnerHTML {:__html "<product-list></product-list>"}}]
    ])
+
+(defn  ^:export launchOrder [uri] (reagent-modals/modal! [:src uri]))
 
 (reagent/render-component [main]
                           (. js/document (getElementById "app")))
