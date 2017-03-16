@@ -11,7 +11,7 @@
                  [org.clojure/core.async "0.2.395"
                   :exclusions [org.clojure/tools.reader]]
                  [reagent "0.6.0"]
-                 [org.clojars.frozenlock/reagent-modals "0.2.3"]
+                 [org.clojars.frozenlock/reagent-modals "0.2.6"]
                  ]
 
   :plugins [[lein-figwheel "0.5.9"]
