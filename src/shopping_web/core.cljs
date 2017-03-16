@@ -4,7 +4,6 @@
 
 (enable-console-print!)
 
-(declare launchOrder)
 
 (defonce app-state (atom {:text "SHOP"}))
 (defn main []
@@ -16,7 +15,9 @@
    [:div {:dangerouslySetInnerHTML {:__html "<product-list></product-list>"}}]
    ])
 
-(defn ^:export launchOrder [uri] (reagent-modals/modal! [:div {:dangerouslySetInnerHTML {:__html (str "<order-view order='" uri "'></order-view>")}}]))
+(defn ^:export launchOrder [uri]
+  (reagent-modals/modal!
+    [:div {:dangerouslySetInnerHTML {:__html (str "<order-view order='" uri "'></order-view>")}}]))
 (reagent/render-component [main]
                           (. js/document (getElementById "app")))
 
